@@ -10,3 +10,15 @@ fetch('/src/reutil/menu-inf.html')
   .catch(error => {
     console.error('Erro ao carregar o menu:', error); // Exibe o erro no console
   });
+
+function selecionarRelPorData() {
+  const diasFimDeSemana = [5, 6, 0];
+  const dataAtual = new Date();
+  const diaHoje = dataAtual.getDay();
+
+  if (diasFimDeSemana.includes(diaHoje)) {
+    window.location.href = "/src/relatorios/fds.html";
+  } else {
+    window.location.href = "/src/relatorios/mds.html";
+  }
+}
