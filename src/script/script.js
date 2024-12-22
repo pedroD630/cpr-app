@@ -1,3 +1,4 @@
+const baseUrl = "https://pedrod630.github.io/kairos-manager-app/";
 // Carrega o menu HTML dinamicamente
 fetch('./src/reutil/menu-inf.html')
   .then(response => {
@@ -17,8 +18,8 @@ function selecionarRelPorData() {
   const diaHoje = dataAtual.getDay();
 
   if (diasFimDeSemana.includes(diaHoje)) {
-    window.location.href = "./src/relatorios/fds.html";
+    window.location.href = `${baseUrl}src/relatorios/fds.html`;
   } else {
-    window.location.href = "./src/relatorios/mds.html";
+    window.location.href = `${baseUrl}src/relatorios/mds.html`;
   }
 }
