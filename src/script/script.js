@@ -1,5 +1,5 @@
 // Carrega o menu HTML dinamicamente
-fetch('./src/reutil/menu-inf.html')
+fetch('/kairos-manager-app/src/reutil/menu-inf.html')
   .then(response => {
     if (!response.ok) throw new Error(`Erro ao carregar menu: ${response.statusText}`);
     return response.text(); // Converte o conteúdo para texto
