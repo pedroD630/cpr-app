@@ -1,5 +1,5 @@
 // Carrega o menu HTML dinamicamente
-fetch('/src/reutil/menu-inf.html')
+fetch('./src/reutil/menu-inf.html')
   .then(response => {
     if (!response.ok) throw new Error(`Erro ao carregar menu: ${response.statusText}`);
     return response.text(); // Converte o conteúdo para texto
@@ -17,8 +17,8 @@ function selecionarRelPorData() {
   const diaHoje = dataAtual.getDay();
 
   if (diasFimDeSemana.includes(diaHoje)) {
-    window.location.href = "/src/relatorios/fds.html";
+    window.location.href = "./src/relatorios/fds.html";
   } else {
-    window.location.href = "/src/relatorios/mds.html";
+    window.location.href = "./src/relatorios/mds.html";
   }
 }
