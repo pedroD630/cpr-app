@@ -35,3 +35,14 @@ function selecionarRelPorData() {
     window.location.href = `${baseUrl}src/relatorios/mds.html`;
   }
 }
+
+
+document.addEventListener("DOMContentLoaded", () =>{
+
+  document.addEventListener("click", (event) => {
+    if (event.target && event.target.id === "hideTimer") {
+      let timerNavbar = document.getElementById("cronometro");
+      timerNavbar.classList.toggle("hidden");
+    }
+  });
+});
