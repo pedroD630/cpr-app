@@ -36,6 +36,15 @@ function selecionarRelPorData() {
   }
 }
 
+function receberHorario(){
+  let date = new Date();
+  let horas = date.getHours();
+  let minutos = date.getMinutes();
+
+  let horasFormatada = `${horas}:${minutos}`;
+
+  return horasFormatada;
+}
 
 document.addEventListener("DOMContentLoaded", () =>{
 
@@ -43,6 +52,21 @@ document.addEventListener("DOMContentLoaded", () =>{
     if (event.target && event.target.id === "hideTimer") {
       let timerNavbar = document.getElementById("cronometro");
       timerNavbar.classList.toggle("hidden");
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (event.target && event.target.id === "startMeeting") {
+      let horaInicio = document.getElementById("horaInicio");
+      horaInicio.value = receberHorario();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (event.target && event.target.id === "encerrarReuniao") {
+      event.preventDefault();
+      let horaFim = document.getElementById("horaFim");
+      horaFim.value = receberHorario();
     }
   });
 });
