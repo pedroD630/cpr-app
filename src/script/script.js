@@ -46,9 +46,10 @@ function receberHorario(){
   let horas = date.getHours();
   let minutos = date.getMinutes();
 
-  let horasFormatada = `${horas}:${minutos}`;
+  let horasFormatada = horas.toString().padStart(2, '0');
+  let minutosFormatado = minutos.toString().padStart(2, '0');
 
-  return horasFormatada;
+  return `${horasFormatada}:${minutosFormatado}`;
 }
 
 function startCron() {
