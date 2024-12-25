@@ -65,10 +65,15 @@ function receberHorario(){
 function startCron() {
   pauseCron();
   cron = setInterval(() => { timer(); }, 10);
+
+  if(parteIniciada){
+    startParte();
+  }
 }
 
 function pauseCron() {
   clearInterval(cron);
+  clearInterval(parte);
 }
 
 function resetCron() {
