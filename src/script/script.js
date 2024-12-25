@@ -5,7 +5,14 @@ let minute = 0;
 let second = 0;
 let millisecond = 0;
 
+let parte;
+let pHour = 0;
+let pMinute = 0;
+let pSecond = 0;
+let pMillisecond = 0;
+
 let reuniaoIniciada = false;
+let parteIniciada = false;
 
 // Carrega o menu HTML dinamicamente
 fetch(`${baseUrl}src/reutil/menu-inf.html`)
@@ -94,6 +101,41 @@ function timer() {
   document.getElementById('displayTime').innerText = `${formattedHour}:${formattedMinute}:${formattedSecond}`;
 }
 
+function startParte() {
+  clearInterval(parte);
+  parte = setInterval(() => { timerParte(); }, 10);
+}
+
+function resetParte() {
+  clearInterval(parte);
+  pHour = 0;
+  pMinute = 0;        
+  pSecond = 0;    
+  pMillisecond = 0;
+  document.getElementById('displayParte').innerText = '00:00:00';
+}
+
+function timerParte() {
+  if ((pMillisecond += 10) === 1000) {
+    pMillisecond = 0;
+    pSecond++;
+  }
+  if (pSecond === 60) {
+    pSecond = 0;
+    pMinute++;
+  }
+  if (pMinute === 60) {
+    pMinute = 0;
+    pHour++;
+  }
+
+  const formattedPHour = returnData(pHour);
+  const formattedPMinute = returnData(pMinute);
+  const formattedPSecond = returnData(pSecond);
+
+  document.getElementById('displayParte').innerText = `${formattedPHour}:${formattedPMinute}:${formattedPSecond}`;
+}
+
 function returnData(input) {
   return input >= 10 ? input : `0${input}`
 }
@@ -131,6 +173,15 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     if (event.target && event.target.id === "pauseMeeting") {
       pauseCron();
+    }
+
+    if (event.target && event.target.id === "startParte") {
+
+      if(!parteIniciada){
+        parteIniciada = true;
+      }
+
+      startParte();
     }
   });
 });
