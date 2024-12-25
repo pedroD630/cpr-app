@@ -15,6 +15,7 @@ let temposPartes;
 
 let reuniaoIniciada = false;
 let parteIniciada = false;
+let reuniaoPausada = false;
 
 // Carrega o menu HTML dinamicamente
 fetch(`${baseUrl}src/reutil/menu-inf.html`)
@@ -196,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         horaInicio.value = receberHorario();
         reuniaoIniciada = true;
       }
-
+      reuniaoPausada = false;
       startCron();
     }
 
@@ -219,12 +220,13 @@ document.addEventListener("DOMContentLoaded", () =>{
     }
 
     if (event.target && event.target.id === "pauseMeeting") {
+      reuniaoPausada = true;
       pauseCron();
     }
 
     if (event.target && event.target.id === "startParte") {
 
-      if(reuniaoIniciada){
+      if(reuniaoIniciada && !reuniaoPausada){
         if(!parteIniciada){
           parteIniciada = true;
         }
