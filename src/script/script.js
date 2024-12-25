@@ -314,7 +314,7 @@ function gerarPdfMds(){
     },
   };
   
-  pdfMake.createPdf(dd).download('nome-do-arquivo.pdf');
+  pdfMake.createPdf(dd).download('reuniao-mds.pdf');
 }
 
 function gerarPdfRelatorio(tipoReuniao){
