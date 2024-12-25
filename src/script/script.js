@@ -5,11 +5,12 @@ let minute = 0;
 let second = 0;
 let millisecond = 0;
 
-let parte;
+let cronParte;
 let pHour = 0;
 let pMinute = 0;
 let pSecond = 0;
 let pMillisecond = 0;
+let parteAtual = 0;
 
 let reuniaoIniciada = false;
 let parteIniciada = false;
@@ -73,7 +74,7 @@ function startCron() {
 
 function pauseCron() {
   clearInterval(cron);
-  clearInterval(parte);
+  clearInterval(cronParte);
 }
 
 function resetCron() {
@@ -107,12 +108,12 @@ function timer() {
 }
 
 function startParte() {
-  clearInterval(parte);
-  parte = setInterval(() => { timerParte(); }, 10);
+  clearInterval(cronParte);
+  cronParte = setInterval(() => { timerParte(); }, 10);
 }
 
 function resetParte() {
-  clearInterval(parte);
+  clearInterval(cronParte);
   pHour = 0;
   pMinute = 0;        
   pSecond = 0;    
