@@ -17,6 +17,13 @@ let reuniaoIniciada = false;
 let parteIniciada = false;
 let reuniaoPausada = false;
 
+class Parte {
+  constructor(quem, tempo) {
+    this.quem = quem;
+    this.tempo = tempo;
+  }
+}
+
 // Carrega o menu HTML dinamicamente
 fetch(`${baseUrl}src/reutil/menu-inf.html`)
   .then(response => {
@@ -178,6 +185,42 @@ function preencherTempoTotal() {
   tempoTotal.value = document.getElementById("displayTime").textContent;
 }
 
+function gerarPdfMds(){
+  const horaInicio = document.getElementById("horaInicio").value;
+  const comentInicial = new Parte(document.getElementById("comentariosIniciais").value, document.getElementById("tempoComentariosIniciais").value);
+  const discurso = new Parte(document.getElementById("discurso").value, document.getElementById("tempoDiscurso").value);
+  const encontreJoias = new Parte(document.getElementById("encontreJoias").value, document.getElementById("tempoEncontreJoias").value);
+  const leituraBiblia = new Parte(document.getElementById("leituraBiblia").value, document.getElementById("tempoLeituraBiblia").value);
+  const conselho1 = new Parte(document.getElementById("conselho1").value, document.getElementById("tempoConselho1").value);
+  const parte1 = new Parte(document.getElementById("parte1").value, document.getElementById("tempoParte1").value);
+  const conselho2 = new Parte(document.getElementById("conselho2").value, document.getElementById("tempoConselho2").value);
+  const parte2 = new Parte(document.getElementById("parte2").value, document.getElementById("tempoParte2").value);
+  const conselho3 = new Parte(document.getElementById("conselho3").value, document.getElementById("tempoConselho3").value);
+  const parte3 = new Parte(document.getElementById("parte3").value, document.getElementById("tempoParte3").value);
+  const conselho4 = new Parte(document.getElementById("conselho4").value, document.getElementById("tempoConselho4").value);
+  const parte4 = new Parte(document.getElementById("parte4").value, document.getElementById("tempoParte4").value);
+  const conselho5 = new Parte(document.getElementById("conselho1").value, document.getElementById("tempoConselho5").value);
+  const NvcParte1 = new Parte(document.getElementById("NvcParte1").value, document.getElementById("tempoNvcParte1").value);
+  const NvcParte2 = new Parte(document.getElementById("NvcParte2").value, document.getElementById("tempoNvcParte2").value);
+  const NvcParte3 = new Parte(document.getElementById("NvcParte3").value, document.getElementById("tempoNvcParte3").value);
+  const estudoBiblico = new Parte(document.getElementById("estudoBiblico").value, document.getElementById("tempoEstudoBiblico").value);
+  const comentariosFinais = new Parte(document.getElementById("comentariosFinais").value, document.getElementById("tempoComentariosFinais").value);
+  const anuncios = new Parte(document.getElementById("anuncios").value, document.getElementById("tempoAnuncios").value);
+  const horaFim = document.getElementById("horaFim").value;
+  const tempoTotal = document.getElementById("tempoTotal").value;
+
+  
+}
+
+function gerarPdfRelatorio(tipoReuniao){
+  if(tipoReuniao == "fds"){
+    gerarPdfFds();
+  }
+  else {
+    gerarPdfMds();
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () =>{
 
   temposPartes = document.querySelectorAll(".tempo-parte");
@@ -217,6 +260,8 @@ document.addEventListener("DOMContentLoaded", () =>{
         parteAtual = 0;
         resetParte();
       }
+
+      gerarPdfRelatorio(tipoReuniao);
     }
 
     if (event.target && event.target.id === "pauseMeeting") {
