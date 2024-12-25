@@ -172,6 +172,11 @@ function returnData(input) {
   return input >= 10 ? input : `0${input}`
 }
 
+function preencherTempoTotal() {
+  let tempoTotal = document.getElementById("tempoTotal");
+  tempoTotal.value = document.getElementById("displayTime").textContent;
+}
+
 document.addEventListener("DOMContentLoaded", () =>{
 
   temposPartes = document.querySelectorAll(".tempo-parte");
@@ -200,6 +205,7 @@ document.addEventListener("DOMContentLoaded", () =>{
       let horaFim = document.getElementById("horaFim");
       horaFim.value = receberHorario();
 
+      preencherTempoTotal();
       resetCron();
 
       reuniaoIniciada = false;
