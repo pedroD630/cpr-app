@@ -1,4 +1,9 @@
 const baseUrl = "/";
+let cron;
+let hour = 0;
+let minute = 0;
+let second = 0;
+let millisecond = 0;
 // Carrega o menu HTML dinamicamente
 fetch(`${baseUrl}src/reutil/menu-inf.html`)
   .then(response => {
@@ -46,6 +51,49 @@ function receberHorario(){
   return horasFormatada;
 }
 
+function startCron() {
+  pauseCron();
+  cron = setInterval(() => { timer(); }, 10);
+}
+
+function pauseCron() {
+  clearInterval(cron);
+}
+
+function resetCron() {
+  clearInterval(cron);
+  hour = 0;
+  minute = 0;        
+  second = 0;    
+  millisecond = 0;
+  document.getElementById('displayTime').innerText = '00:00:00';
+}
+
+function timer() {
+  if ((millisecond += 10) === 1000) {
+    millisecond = 0;
+    second++;
+  }
+  if (second === 60) {
+    second = 0;
+    minute++;
+  }
+  if (minute === 60) {
+    minute = 0;
+    hour++;
+  }
+
+  const formattedHour = returnData(hour);
+  const formattedMinute = returnData(minute);
+  const formattedSecond = returnData(second);
+
+  document.getElementById('displayTime').innerText = `${formattedHour}:${formattedMinute}:${formattedSecond}`;
+}
+
+function returnData(input) {
+  return input >= 10 ? input : `0${input}`
+}
+
 document.addEventListener("DOMContentLoaded", () =>{
 
   document.addEventListener("click", (event) => {
@@ -59,6 +107,14 @@ document.addEventListener("DOMContentLoaded", () =>{
     if (event.target && event.target.id === "startMeeting") {
       let horaInicio = document.getElementById("horaInicio");
       horaInicio.value = receberHorario();
+
+      startCron();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (event.target && event.target.id === "pauseMeeting") {
+      pauseCron();
     }
   });
 
@@ -67,6 +123,8 @@ document.addEventListener("DOMContentLoaded", () =>{
       event.preventDefault();
       let horaFim = document.getElementById("horaFim");
       horaFim.value = receberHorario();
+
+      resetCron();
     }
   });
 });
