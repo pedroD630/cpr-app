@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatório de Reunião</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/src/style/style.css" rel="stylesheet">
+    <link href="/kairos-manager-app/src/style/style.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.12/pdfmake.min.js" integrity="sha512-axXaF5grZBaYl7qiM6OMHgsgVXdSLxqq0w7F4CQxuFyrcPmn0JfnqsOtYHUun80g6mRRdvJDrTCyL8LQqBOt/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.12/vfs_fonts.js" integrity="sha512-nNkHPz+lD0Wf0eFGO0ZDxr+lWiFalFutgVeGkPdVgrG4eXDYUnhfEj9Zmg1QkrJFLC0tGs8ZExyU/1mjs4j93w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>let tipoReuniao = "mds";</script>
 </head>
 
 <body class="bg-dark text-white">
@@ -71,14 +75,14 @@
                             placeholder="Tempo gasto">
                     </div>
                 </div>
-                <label for="conselho" class="form-label">Conselho</label>
+                <label for="conselho1" class="form-label">Conselho</label>
                 <div class="row">
                     <div class="col-6">
-                        <input type="text" class="form-control mb-2" id="conselho" name="conselho"
+                        <input type="text" class="form-control mb-2" id="conselho1" name="conselho1"
                             placeholder="Quem fez">
                     </div>
                     <div class="col-6">
-                        <input type="text" class="form-control tempo-parte" id="tempoConselho" name="tempoConselho"
+                        <input type="text" class="form-control tempo-parte" id="tempoConselho1" name="tempoConselho1"
                             placeholder="Tempo gasto">
                     </div>
                 </div>
@@ -95,6 +99,17 @@
                             placeholder="Tempo gasto">
                     </div>
                 </div>
+                <label for="conselho2" class="form-label">Conselho</label>
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" class="form-control mb-2" id="conselho2" name="conselho2"
+                            placeholder="Quem fez">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" class="form-control tempo-parte" id="tempoConselho2" name="tempoConselho2"
+                            placeholder="Tempo gasto">
+                    </div>
+                </div>
 
                 <label for="parte2" class="form-label">Parte 2</label>
                 <div class="row">
@@ -106,6 +121,17 @@
                             placeholder="Tempo gasto">
                     </div>
                 </div>
+                <label for="conselho3" class="form-label">Conselho</label>
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" class="form-control mb-2" id="conselho3" name="conselho3"
+                            placeholder="Quem fez">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" class="form-control tempo-parte" id="tempoConselho3" name="tempoConselho3"
+                            placeholder="Tempo gasto">
+                    </div>
+                </div>
 
                 <label for="parte3" class="form-label">Parte 3</label>
                 <div class="row">
@@ -114,6 +140,17 @@
                     </div>
                     <div class="col-6">
                         <input type="text" class="form-control tempo-parte" id="tempoParte3" name="tempoParte3"
+                            placeholder="Tempo gasto">
+                    </div>
+                </div>
+                <label for="conselho4" class="form-label">Conselho</label>
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" class="form-control mb-2" id="conselho4" name="conselho4"
+                            placeholder="Quem fez">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" class="form-control tempo-parte" id="tempoConselho4" name="tempoConselho4"
                             placeholder="Tempo gasto">
                     </div>
                 </div>
@@ -128,40 +165,51 @@
                             placeholder="Tempo gasto">
                     </div>
                 </div>
+                <label for="conselho5" class="form-label">Conselho</label>
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" class="form-control mb-2" id="conselho5" name="conselho5"
+                            placeholder="Quem fez">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" class="form-control tempo-parte" id="tempoConselho5" name="tempoConselho5"
+                            placeholder="Tempo gasto">
+                    </div>
+                </div>
 
             </div>
 
             <div class="mb-3">
                 <h3 class="mb-1">Nossa Vida Cristã</h3>
-                <label for="parte1" class="form-label">Parte 1</label>
+                <label for="NvcParte1" class="form-label">Parte 1</label>
                 <div class="row">
                     <div class="col-6">
-                        <input type="text" class="form-control mb-2" id="parte1" name="parte1" placeholder="Quem fez">
+                        <input type="text" class="form-control mb-2" id="NvcParte1" name="NvcParte1" placeholder="Quem fez">
                     </div>
                     <div class="col-6">
-                        <input type="text" class="form-control tempo-parte" id="tempoParte1" name="tempoParte1"
+                        <input type="text" class="form-control tempo-parte" id="tempoNvcParte1" name="tempoNvcParte1"
                             placeholder="Tempo gasto">
                     </div>
                 </div>
 
-                <label for="parte2" class="form-label">Parte 2</label>
+                <label for="NvcParte2" class="form-label">Parte 2</label>
                 <div class="row">
                     <div class="col-6">
-                        <input type="text" class="form-control mb-2" id="parte2" name="parte2" placeholder="Quem fez">
+                        <input type="text" class="form-control mb-2" id="NvcParte2" name="NvcParte2" placeholder="Quem fez">
                     </div>
                     <div class="col-6">
-                        <input type="text" class="form-control tempo-parte" id="tempoParte2" name="tempoParte2"
+                        <input type="text" class="form-control tempo-parte" id="tempoNvcParte2" name="tempoNvcParte2"
                             placeholder="Tempo gasto">
                     </div>
                 </div>
 
-                <label for="parte3" class="form-label">Parte 3</label>
+                <label for="NvcParte3" class="form-label">Parte 3</label>
                 <div class="row">
                     <div class="col-6">
-                        <input type="text" class="form-control mb-2" id="parte3" name="parte3" placeholder="Quem fez">
+                        <input type="text" class="form-control mb-2" id="NvcParte3" name="NvcParte3" placeholder="Quem fez">
                     </div>
                     <div class="col-6">
-                        <input type="text" class="form-control tempo-parte" id="tempoParte3" name="tempoParte3"
+                        <input type="text" class="form-control tempo-parte" id="tempoNvcParte3" name="tempoNvcParte3"
                             placeholder="Tempo gasto">
                     </div>
                 </div>
@@ -213,7 +261,7 @@
     <div id="menu"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/src/script/script.js"></script>
+    <script src="/kairos-manager-app/src/script/script.js"></script>
 </body>
 
 </html>
