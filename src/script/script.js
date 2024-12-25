@@ -203,6 +203,13 @@ document.addEventListener("DOMContentLoaded", () =>{
       resetCron();
 
       reuniaoIniciada = false;
+
+      if(parteIniciada){
+        parteIniciada = false;
+        preencherTempo(parteAtual);
+        parteAtual = 0;
+        resetParte();
+      }
     }
 
     if (event.target && event.target.id === "pauseMeeting") {
