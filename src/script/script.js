@@ -218,11 +218,14 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     if (event.target && event.target.id === "startParte") {
 
-      if(!parteIniciada){
-        parteIniciada = true;
+      if(reuniaoIniciada){
+        if(!parteIniciada){
+          parteIniciada = true;
+        }
+  
+        startParte();
       }
-
-      startParte();
+      else {alert("Reunião não iniciada!")}
     }
 
     if (event.target && event.target.id === "endParte") {
