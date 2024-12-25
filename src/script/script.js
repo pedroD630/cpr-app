@@ -4,6 +4,9 @@ let hour = 0;
 let minute = 0;
 let second = 0;
 let millisecond = 0;
+
+let reuniaoIniciada = false;
+
 // Carrega o menu HTML dinamicamente
 fetch(`${baseUrl}src/reutil/menu-inf.html`)
   .then(response => {
@@ -106,8 +109,12 @@ document.addEventListener("DOMContentLoaded", () =>{
 
   document.addEventListener("click", (event) => {
     if (event.target && event.target.id === "startMeeting") {
-      let horaInicio = document.getElementById("horaInicio");
-      horaInicio.value = receberHorario();
+
+      if(!reuniaoIniciada){
+        let horaInicio = document.getElementById("horaInicio");
+        horaInicio.value = receberHorario();
+        reuniaoIniciada = true;
+      }
 
       startCron();
     }
@@ -126,6 +133,8 @@ document.addEventListener("DOMContentLoaded", () =>{
       horaFim.value = receberHorario();
 
       resetCron();
+
+      reuniaoIniciada = false;
     }
   });
 });
