@@ -11,6 +11,7 @@ let pMinute = 0;
 let pSecond = 0;
 let pMillisecond = 0;
 let parteAtual = 0;
+let temposPartes;
 
 let reuniaoIniciada = false;
 let parteIniciada = false;
@@ -139,7 +140,34 @@ function timerParte() {
   const formattedPMinute = returnData(pMinute);
   const formattedPSecond = returnData(pSecond);
 
+  if (parteAtual < temposPartes.length) {
+    if(pHour > 0) {
+      temposPartes[parteAtual].value = `${formattedPHour}:${formattedPMinute}:${formattedPSecond}`;
+      console.log(temposPartes[parteAtual].value)
+    }
+    else {
+      temposPartes[parteAtual].value = `${formattedPMinute}:${formattedPSecond}`;
+      console.log(temposPartes[parteAtual].value)
+    }
+    
+  }
+
   document.getElementById('displayParte').innerText = `${formattedPHour}:${formattedPMinute}:${formattedPSecond}`;
+
+}
+
+function preencherTempo(index) {
+  const parteTempo = temposPartes[index];
+  const formattedPHour = returnData(pHour);
+  const formattedPMinute = returnData(pMinute);
+  const formattedPSecond = returnData(pSecond);
+
+  if(pHour > 0){
+    parteTempo.value = `${formattedPHour}:${formattedPMinute}:${formattedPSecond}`;
+  }
+  else {
+    parteTempo.value = `${formattedPMinute}:${formattedPSecond}`;
+  }
 }
 
 function returnData(input) {
@@ -147,6 +175,8 @@ function returnData(input) {
 }
 
 document.addEventListener("DOMContentLoaded", () =>{
+
+  temposPartes = document.querySelectorAll(".tempo-parte");
 
   document.addEventListener("click", (event) => {
     if (event.target && event.target.id === "hideTimer") {
@@ -192,7 +222,8 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     if (event.target && event.target.id === "endParte") {
       parteIniciada = false;
-
+      preencherTempo(parteAtual);
+      parteAtual++;
       resetParte();
     }
   });
