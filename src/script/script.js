@@ -143,11 +143,9 @@ function timerParte() {
   if (parteAtual < temposPartes.length) {
     if(pHour > 0) {
       temposPartes[parteAtual].value = `${formattedPHour}:${formattedPMinute}:${formattedPSecond}`;
-      console.log(temposPartes[parteAtual].value)
     }
     else {
       temposPartes[parteAtual].value = `${formattedPMinute}:${formattedPSecond}`;
-      console.log(temposPartes[parteAtual].value)
     }
     
   }
