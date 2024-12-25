@@ -188,5 +188,11 @@ document.addEventListener("DOMContentLoaded", () =>{
 
       startParte();
     }
+
+    if (event.target && event.target.id === "endParte") {
+      parteIniciada = false;
+
+      resetParte();
+    }
   });
 });
