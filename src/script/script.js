@@ -118,15 +118,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
       startCron();
     }
-  });
 
-  document.addEventListener("click", (event) => {
-    if (event.target && event.target.id === "pauseMeeting") {
-      pauseCron();
-    }
-  });
-
-  document.addEventListener("click", (event) => {
     if (event.target && event.target.id === "encerrarReuniao") {
       event.preventDefault();
       let horaFim = document.getElementById("horaFim");
@@ -135,6 +127,10 @@ document.addEventListener("DOMContentLoaded", () =>{
       resetCron();
 
       reuniaoIniciada = false;
+    }
+
+    if (event.target && event.target.id === "pauseMeeting") {
+      pauseCron();
     }
   });
 });
