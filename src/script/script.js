@@ -8,6 +8,8 @@ let second = 0;
 let millisecond = 0;
 
 let cronParte;
+let pStartTime;
+let pElapsedTime = 0;
 let pHour = 0;
 let pMinute = 0;
 let pSecond = 0;
@@ -86,7 +88,6 @@ function startCron() {
 function pauseCron() {
   cancelAnimationFrame(cron); // Para o loop
   elapsedTime = Date.now() - startTime; // Salva o tempo decorrido
-  clearInterval(cronParte);
 }
 
 function resetCron() {
@@ -116,32 +117,30 @@ function updateDisplay(hour, minute, second) {
 }
 
 function startParte() {
-  clearInterval(cronParte);
-  cronParte = setInterval(() => { timerParte(); }, 10);
+  pStartTime = Date.now() - pElapsedTime;
+  cronParte = requestAnimationFrame(timerParte);
+}
+
+function pauseParte() {
+  cancelAnimationFrame(cronParte); // Para o loop
+  pElapsedTime = Date.now() - pStartTime; // Salva o tempo decorrido
 }
 
 function resetParte() {
-  clearInterval(cronParte);
-  pHour = 0;
-  pMinute = 0;        
-  pSecond = 0;    
-  pMillisecond = 0;
+  pauseParte();
+  pElapsedTime = 0;
   document.getElementById('displayParte').innerText = '00:00:00';
 }
 
 function timerParte() {
-  if ((pMillisecond += 10) === 1000) {
-    pMillisecond = 0;
-    pSecond++;
-  }
-  if (pSecond === 60) {
-    pSecond = 0;
-    pMinute++;
-  }
-  if (pMinute === 60) {
-    pMinute = 0;
-    pHour++;
-  }
+  const now = Date.now(); // Tempo atual em milissegundos
+  const diff = now - pStartTime; // Tempo total decorrido
+
+  pHour = Math.floor(diff / 3600000);
+  pMinute = Math.floor((diff % 3600000) / 60000);
+  pSecond = Math.floor((diff % 60000) / 1000);
+
+  cronParte = requestAnimationFrame(timerParte); // Continua o loop
 
   const formattedPHour = returnData(pHour);
   const formattedPMinute = returnData(pMinute);
@@ -374,6 +373,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     if (event.target && event.target.id === "pauseMeeting") {
       reuniaoPausada = true;
       pauseCron();
+      pauseParte();
     }
 
     if (event.target && event.target.id === "startParte") {
@@ -381,9 +381,8 @@ document.addEventListener("DOMContentLoaded", () =>{
       if(reuniaoIniciada && !reuniaoPausada){
         if(!parteIniciada){
           parteIniciada = true;
+          startParte();
         }
-  
-        startParte();
       }
       else {alert("Reunião não iniciada!")}
     }
