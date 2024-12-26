@@ -343,9 +343,12 @@ document.addEventListener("DOMContentLoaded", () =>{
         let horaInicio = document.getElementById("horaInicio");
         horaInicio.value = receberHorario();
         reuniaoIniciada = true;
+        startCron();
+      }   
+      else if(reuniaoPausada){   
+        reuniaoPausada = false;
+        startCron();
       }
-      reuniaoPausada = false;
-      startCron();
     }
 
     if (event.target && event.target.id === "encerrarReuniao") {
