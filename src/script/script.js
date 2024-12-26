@@ -326,6 +326,13 @@ function gerarPdfRelatorio(tipoReuniao){
 
 document.addEventListener("DOMContentLoaded", () =>{
 
+  window.addEventListener('beforeunload', (event) => {
+    if (reuniaoIniciada) {
+      event.preventDefault();
+      event.returnValue = '';
+    }
+  });
+
   temposPartes = document.querySelectorAll(".tempo-parte");
 
   document.addEventListener("click", (event) => {
