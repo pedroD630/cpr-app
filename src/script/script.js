@@ -1,4 +1,4 @@
-const baseUrl = "https://pedrod630.github.io/kairos-manager-app/";
+const baseUrl = "/";
 let cron;
 let hour = 0;
 let minute = 0;
