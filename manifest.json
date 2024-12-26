@@ -2,7 +2,7 @@
   "name": "Kairos Cronometro",
   "theme_color": "#0d6efd",
   "start_url": "/kairos-manager-app/index.html",
-  "background_color": "rgb(26, 29, 32)",
+  "background_color": "#191C1F",
   "short_name": "Kairos",
   "id": "kairos_app",
   "description": "Cronometro de tempo reuniões testemunhas de Jeová",
