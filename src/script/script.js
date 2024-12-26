@@ -1,5 +1,7 @@
 const baseUrl = "/";
 let cron;
+let startTime;
+let elapsedTime = 0;
 let hour = 0;
 let minute = 0;
 let second = 0;
@@ -73,8 +75,8 @@ function receberHorario(){
 }
 
 function startCron() {
-  pauseCron();
-  cron = setInterval(() => { timer(); }, 10);
+  startTime = Date.now() - elapsedTime;
+  cron = requestAnimationFrame(timer);
 
   if(parteIniciada){
     startParte();
@@ -82,33 +84,30 @@ function startCron() {
 }
 
 function pauseCron() {
-  clearInterval(cron);
+  cancelAnimationFrame(cron); // Para o loop
+  elapsedTime = Date.now() - startTime; // Salva o tempo decorrido
   clearInterval(cronParte);
 }
 
 function resetCron() {
-  clearInterval(cron);
-  hour = 0;
-  minute = 0;        
-  second = 0;    
-  millisecond = 0;
-  document.getElementById('displayTime').innerText = '00:00:00';
+  pauseCron();
+  elapsedTime = 0;
+  updateDisplay(0, 0, 0); // Atualiza para 00:00:00
 }
 
 function timer() {
-  if ((millisecond += 10) === 1000) {
-    millisecond = 0;
-    second++;
-  }
-  if (second === 60) {
-    second = 0;
-    minute++;
-  }
-  if (minute === 60) {
-    minute = 0;
-    hour++;
-  }
+  const now = Date.now(); // Tempo atual em milissegundos
+  const diff = now - startTime; // Tempo total decorrido
 
+  const hour = Math.floor(diff / 3600000);
+  const minute = Math.floor((diff % 3600000) / 60000);
+  const second = Math.floor((diff % 60000) / 1000);
+
+  updateDisplay(hour, minute, second); // Atualiza o display
+  cron = requestAnimationFrame(timer); // Continua o loop
+}
+
+function updateDisplay(hour, minute, second) {
   const formattedHour = returnData(hour);
   const formattedMinute = returnData(minute);
   const formattedSecond = returnData(second);
@@ -177,7 +176,7 @@ function preencherTempo(index) {
 }
 
 function returnData(input) {
-  return input >= 10 ? input : `0${input}`
+  return input < 10 ? `0${input}` : input;
 }
 
 function preencherTempoTotal() {
@@ -314,7 +313,7 @@ function gerarPdfMds(){
     },
   };
   
-  pdfMake.createPdf(dd).download('reuniao-mds.pdf');
+  pdfMake.createPdf(dd).download('nome-do-arquivo.pdf');
 }
 
 function gerarPdfRelatorio(tipoReuniao){
