@@ -8,6 +8,14 @@
   "id": "kairos_app",
   "description": "Cronometro de tempo reuniões testemunhas de Jeová",
   "display": "standalone",
+  "screenshots": [
+  {
+    "src": "/kairos-manager-app/AppImages/screenshot1.jpeg",
+    "sizes": "640x480",
+    "type": "image/jpeg",
+    "form_factor": "narrow"
+  }
+  ],
   "icons": [
   {
     "src": "/kairos-manager-app/AppImages/windows11/SmallTile.scale-100.png",
