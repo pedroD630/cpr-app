@@ -311,7 +311,7 @@ function gerarPdfMds(){
     },
   };
   
-  pdfMake.createPdf(dd).download('nome-do-arquivo.pdf');
+  pdfMake.createPdf(dd).download('reuniaomds.pdf');
 }
 
 function gerarPdfFds() {
