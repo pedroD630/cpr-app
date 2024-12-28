@@ -209,7 +209,6 @@ function gerarPdfMds(){
   const horaFim = document.getElementById("horaFim").value;
   const tempoTotal = document.getElementById("tempoTotal").value;
 
-  // playground requires you to assign document definition to a variable called dd
   var dd = {
     pageSize: 'A4',
     pageOrientation: 'landscape',
@@ -220,7 +219,7 @@ function gerarPdfMds(){
         table: {
           widths: ['auto', 'auto'], // Define as larguras das colunas
           body: [
-            ['Hora Início', `${horaInicio}`],
+            [{text: 'Hora Início', fillColor: '#fbdcb0'}, `${horaInicio}`],
           ],
         },
       },
@@ -315,6 +314,93 @@ function gerarPdfMds(){
   };
   
   pdfMake.createPdf(dd).download('nome-do-arquivo.pdf');
+}
+
+function gerarPdfFds() {
+  const horaInicio = document.getElementById("horaInicio").value;
+  const comentInicial = new Parte(document.getElementById("comentariosIniciais").value, document.getElementById("tempoComentariosIniciais").value);
+  const discursoPublico = new Parte(document.getElementById("discursoPublico").value, document.getElementById("tempoDiscursoPublico").value);
+  const estudoSentinela = new Parte(document.getElementById("estudoSentinela").value, document.getElementById("tempoEstudoSentinela").value);
+  const comentariosFinais = new Parte(document.getElementById("comentariosFinais").value, document.getElementById("tempoComentariosFinais").value);
+  const anuncios = new Parte(document.getElementById("anuncios").value, document.getElementById("tempoAnuncios").value);
+  const horaFim = document.getElementById("horaFim").value;
+  const tempoTotal = document.getElementById("tempoTotal").value;
+
+  var fds = {
+    pageSize: 'A4',
+    pageOrientation: 'landscape',
+    content: [
+      { text: 'Reunião Fim de Semana', style: 'subheader' },
+      {
+        style: 'tableExample',
+        table: {
+          widths: ['auto', 'auto'], // Define as larguras das colunas
+          body: [
+            [{text: 'Hora Início', fillColor: '#fbdcb0'}, `${horaInicio}`],
+          ],
+        },
+      },
+      {
+        style: 'tableExample',
+        color: '#444',
+        table: {
+          widths: ['auto', 'auto', 'auto'], // Larguras para 4 colunas
+          headerRows: 1, // Define o número de linhas de cabeçalho
+          body: [
+            // Primeira linha com colSpan
+            [
+              { text: '', style: 'tableHeader', alignment: 'center' }, // Cabeçalho vazio
+              { text: 'Tempo Gasto', style: 'tableHeader', alignment: 'center' },
+              { text: 'Quem', style: 'tableHeader', alignment: 'center' }
+            ],
+            // Segunda linha de cabeçalho
+            ['Comentários Iniciais', `${comentInicial.tempo}`, `${comentInicial.quem}`],
+            // Corpo da tabela
+            ['Discurso Público', `${discursoPublico.tempo}`, `${discursoPublico.quem}`],
+            ['Estudo de A Sentinela', `${estudoSentinela.tempo}`, `${estudoSentinela.quem}`],
+
+            ['Comentários Finais', `${comentariosFinais.tempo}`, `${comentariosFinais.quem}`],
+            ['Anúncios', `${anuncios.tempo}`, `${anuncios.quem}`],
+          ],
+        },
+      },
+      {
+        style: 'tableExample',
+        table: {
+          widths: ['auto', 'auto', 'auto', 'auto'], // Define as larguras das colunas
+          body: [
+            [{text: 'Hora Fim', fillColor: '#fbdcb0'}, `${horaFim}`, {text:'Tempo Total', fillColor: '#a4d9a3'}, `${tempoTotal}`]
+          ],
+        },
+      },
+    ],
+    styles: {
+      header: {
+        fontSize: 18,
+        bold: true,
+        margin: [0, 0, 0, 10],
+      },
+      subheader: {
+        fontSize: 16,
+        bold: true,
+        margin: [0, 10, 0, 5],
+        alignment: 'center',
+      },
+      tableExample: {
+        margin: [0, 5, 0, 15],
+      },
+      tableHeader: {
+        bold: true,
+        fontSize: 13,
+        color: 'black',
+      },
+    },
+    defaultStyle: {
+      // alignment: 'justify'
+    },
+  };
+  
+  pdfMake.createPdf(fds).download('reuniaofds.pdf');
 }
 
 function gerarPdfRelatorio(tipoReuniao){
