@@ -1,16 +1,16 @@
 {
-  "name": "Kairos Cronometro",
+  "name": "Reuniões JW",
   "theme_color": "#0d6efd",
-  "start_url": "/kairos-manager-app/index.html",
-  "scope": "/kairos-manager-app/",
+  "start_url": "/index.html",
+  "scope": "/",
   "background_color": "#191C1F",
-  "short_name": "Kairos",
-  "id": "kairos_app",
-  "description": "Cronometro de tempo reuniões testemunhas de Jeová",
+  "short_name": "Reuniões",
+  "id": "reunioes_app",
+  "description": "Cronometro de tempo reuniões Testemunhas de Jeová",
   "display": "standalone",
   "screenshots": [
   {
-    "src": "/kairos-manager-app/AppImages/screenshot1.jpeg",
+    "src": "/AppImages/screenshot1.jpeg",
     "sizes": "516x385",
     "type": "image/jpeg",
     "form_factor": "narrow"
@@ -18,271 +18,271 @@
   ],
   "icons": [
   {
-    "src": "/kairos-manager-app/AppImages/windows11/SmallTile.scale-100.png",
+    "src": "/AppImages/windows11/SmallTile.scale-100.png",
     "sizes": "71x71"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/SmallTile.scale-125.png",
+    "src": "/AppImages/windows11/SmallTile.scale-125.png",
     "sizes": "89x89"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/SmallTile.scale-150.png",
+    "src": "/AppImages/windows11/SmallTile.scale-150.png",
     "sizes": "107x107"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/SmallTile.scale-200.png",
+    "src": "/AppImages/windows11/SmallTile.scale-200.png",
     "sizes": "142x142"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/SmallTile.scale-400.png",
+    "src": "/AppImages/windows11/SmallTile.scale-400.png",
     "sizes": "284x284"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/Square150x150Logo.scale-100.png",
+    "src": "/AppImages/windows11/Square150x150Logo.scale-100.png",
     "sizes": "150x150"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/Square150x150Logo.scale-125.png",
+    "src": "/AppImages/windows11/Square150x150Logo.scale-125.png",
     "sizes": "188x188"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/Square150x150Logo.scale-150.png",
+    "src": "/AppImages/windows11/Square150x150Logo.scale-150.png",
     "sizes": "225x225"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/Square150x150Logo.scale-200.png",
+    "src": "/AppImages/windows11/Square150x150Logo.scale-200.png",
     "sizes": "300x300"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/Square150x150Logo.scale-400.png",
+    "src": "/AppImages/windows11/Square150x150Logo.scale-400.png",
     "sizes": "600x600"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/Wide310x150Logo.scale-100.png",
+    "src": "/AppImages/windows11/Wide310x150Logo.scale-100.png",
     "sizes": "310x150"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/Wide310x150Logo.scale-125.png",
+    "src": "/AppImages/windows11/Wide310x150Logo.scale-125.png",
     "sizes": "388x188"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/Wide310x150Logo.scale-150.png",
+    "src": "/AppImages/windows11/Wide310x150Logo.scale-150.png",
     "sizes": "465x225"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/Wide310x150Logo.scale-200.png",
+    "src": "/AppImages/windows11/Wide310x150Logo.scale-200.png",
     "sizes": "620x300"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/Wide310x150Logo.scale-400.png",
+    "src": "/AppImages/windows11/Wide310x150Logo.scale-400.png",
     "sizes": "1240x600"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/LargeTile.scale-100.png",
+    "src": "/AppImages/windows11/LargeTile.scale-100.png",
     "sizes": "310x310"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/LargeTile.scale-125.png",
+    "src": "/AppImages/windows11/LargeTile.scale-125.png",
     "sizes": "388x388"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/LargeTile.scale-150.png",
+    "src": "/AppImages/windows11/LargeTile.scale-150.png",
     "sizes": "465x465"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/LargeTile.scale-200.png",
+    "src": "/AppImages/windows11/LargeTile.scale-200.png",
     "sizes": "620x620"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/LargeTile.scale-400.png",
+    "src": "/AppImages/windows11/LargeTile.scale-400.png",
     "sizes": "1240x1240"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/Square44x44Logo.scale-100.png",
+    "src": "/AppImages/windows11/Square44x44Logo.scale-100.png",
     "sizes": "44x44"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/Square44x44Logo.scale-125.png",
+    "src": "/AppImages/windows11/Square44x44Logo.scale-125.png",
     "sizes": "55x55"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/Square44x44Logo.scale-150.png",
+    "src": "/AppImages/windows11/Square44x44Logo.scale-150.png",
     "sizes": "66x66"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/Square44x44Logo.scale-200.png",
+    "src": "/AppImages/windows11/Square44x44Logo.scale-200.png",
     "sizes": "88x88"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/Square44x44Logo.scale-400.png",
+    "src": "/AppImages/windows11/Square44x44Logo.scale-400.png",
     "sizes": "176x176"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/StoreLogo.scale-100.png",
+    "src": "/AppImages/windows11/StoreLogo.scale-100.png",
     "sizes": "50x50"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/StoreLogo.scale-125.png",
+    "src": "/AppImages/windows11/StoreLogo.scale-125.png",
     "sizes": "63x63"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/StoreLogo.scale-150.png",
+    "src": "/AppImages/windows11/StoreLogo.scale-150.png",
     "sizes": "75x75"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/StoreLogo.scale-200.png",
+    "src": "/AppImages/windows11/StoreLogo.scale-200.png",
     "sizes": "100x100"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/StoreLogo.scale-400.png",
+    "src": "/AppImages/windows11/StoreLogo.scale-400.png",
     "sizes": "200x200"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/SplashScreen.scale-100.png",
+    "src": "/AppImages/windows11/SplashScreen.scale-100.png",
     "sizes": "620x300"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/SplashScreen.scale-125.png",
+    "src": "/AppImages/windows11/SplashScreen.scale-125.png",
     "sizes": "775x375"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/SplashScreen.scale-150.png",
+    "src": "/AppImages/windows11/SplashScreen.scale-150.png",
     "sizes": "930x450"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/SplashScreen.scale-200.png",
+    "src": "/AppImages/windows11/SplashScreen.scale-200.png",
     "sizes": "1240x600"
   },
   {
-    "src": "/kairos-manager-app/AppImages/windows11/SplashScreen.scale-400.png",
+    "src": "/AppImages/windows11/SplashScreen.scale-400.png",
     "sizes": "2480x1200"
   },
   {
-    "src": "/kairos-manager-app/AppImages/android/android-launchericon-512-512.png",
+    "src": "/AppImages/android/android-launchericon-512-512.png",
     "sizes": "512x512"
   },
   {
-    "src": "/kairos-manager-app/AppImages/android/android-launchericon-192-192.png",
+    "src": "/AppImages/android/android-launchericon-192-192.png",
     "sizes": "192x192"
   },
   {
-    "src": "/kairos-manager-app/AppImages/android/android-launchericon-144-144.png",
+    "src": "/AppImages/android/android-launchericon-144-144.png",
     "sizes": "144x144"
   },
   {
-    "src": "/kairos-manager-app/AppImages/android/android-launchericon-96-96.png",
+    "src": "/AppImages/android/android-launchericon-96-96.png",
     "sizes": "96x96"
   },
   {
-    "src": "/kairos-manager-app/AppImages/android/android-launchericon-72-72.png",
+    "src": "/AppImages/android/android-launchericon-72-72.png",
     "sizes": "72x72"
   },
   {
-    "src": "/kairos-manager-app/AppImages/android/android-launchericon-48-48.png",
+    "src": "/AppImages/android/android-launchericon-48-48.png",
     "sizes": "48x48"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/16.png",
+    "src": "/AppImages/ios/16.png",
     "sizes": "16x16"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/20.png",
+    "src": "/AppImages/ios/20.png",
     "sizes": "20x20"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/29.png",
+    "src": "/AppImages/ios/29.png",
     "sizes": "29x29"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/32.png",
+    "src": "/AppImages/ios/32.png",
     "sizes": "32x32"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/40.png",
+    "src": "/AppImages/ios/40.png",
     "sizes": "40x40"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/50.png",
+    "src": "/AppImages/ios/50.png",
     "sizes": "50x50"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/57.png",
+    "src": "/AppImages/ios/57.png",
     "sizes": "57x57"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/58.png",
+    "src": "/AppImages/ios/58.png",
     "sizes": "58x58"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/60.png",
+    "src": "/AppImages/ios/60.png",
     "sizes": "60x60"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/64.png",
+    "src": "/AppImages/ios/64.png",
     "sizes": "64x64"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/72.png",
+    "src": "/AppImages/ios/72.png",
     "sizes": "72x72"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/76.png",
+    "src": "/AppImages/ios/76.png",
     "sizes": "76x76"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/80.png",
+    "src": "/AppImages/ios/80.png",
     "sizes": "80x80"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/87.png",
+    "src": "/AppImages/ios/87.png",
     "sizes": "87x87"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/100.png",
+    "src": "/AppImages/ios/100.png",
     "sizes": "100x100"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/114.png",
+    "src": "/AppImages/ios/114.png",
     "sizes": "114x114"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/120.png",
+    "src": "/AppImages/ios/120.png",
     "sizes": "120x120"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/128.png",
+    "src": "/AppImages/ios/128.png",
     "sizes": "128x128"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/144.png",
+    "src": "/AppImages/ios/144.png",
     "sizes": "144x144"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/152.png",
+    "src": "/AppImages/ios/152.png",
     "sizes": "152x152"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/167.png",
+    "src": "/AppImages/ios/167.png",
     "sizes": "167x167"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/180.png",
+    "src": "/AppImages/ios/180.png",
     "sizes": "180x180"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/192.png",
+    "src": "/AppImages/ios/192.png",
     "sizes": "192x192"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/256.png",
+    "src": "/AppImages/ios/256.png",
     "sizes": "256x256"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/512.png",
+    "src": "/AppImages/ios/512.png",
     "sizes": "512x512"
   },
   {
-    "src": "/kairos-manager-app/AppImages/ios/1024.png",
+    "src": "/AppImages/ios/1024.png",
     "sizes": "1024x1024"
   }
   ]
