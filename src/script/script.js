@@ -34,7 +34,7 @@ class Parte {
 carregarCronometro(baseUrl);
 carregarMenu(baseUrl);
 
-function selecionarRelPorData() {
+function carregarRelPorData() {
   const diasFimDeSemana = [5, 6, 0];
   const dataAtual = new Date();
   const diaHoje = dataAtual.getDay();
@@ -470,4 +470,4 @@ document.addEventListener("DOMContentLoaded", () =>{
   });
 });
 
-window.selecionarRelPorData = selecionarRelPorData;
+window.carregarRelPorData = carregarRelPorData;
