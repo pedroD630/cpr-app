@@ -39,6 +39,13 @@ import {
 carregarCronometro(baseUrl);
 carregarMenu(baseUrl);
 
+function encerrarParte() {
+  setParteIniciada(false);
+  preencherTempo(temposPartes, getParteAtual(), getPHour(), getPMinute(), getPSecond());
+  setParteAtual(getParteAtual() + 1);
+  resetParte();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener('beforeunload', (event) => {
@@ -110,12 +117,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (event.target && event.target.id === "endParte") {
-      setParteIniciada(false);
-      preencherTempo(temposPartes, getParteAtual(), getPHour(), getPMinute(), getPSecond());
-      setParteAtual(getParteAtual() + 1);
-      resetParte();
+      if(!getParteIniciada()){
+        alert("Parte não iniciada!")
+      }
+      else {
+        encerrarParte();
+      }
+    }
+
+    if(event.target && event.target.id === "nextParte") {
+      if(!getParteIniciada()){
+        preencherTempo(temposPartes, getParteAtual(), 0, 0, 0);
+        setParteAtual(getParteAtual() + 1);
+        resetParte();
+      } 
+      else {
+        encerrarParte();
+      }
+    }
+
+    if(event.target && event.target.id === "lastParte") {
+        setParteIniciada(false);
+        preencherTempo(temposPartes, getParteAtual(), getPHour(), getPMinute(), getPSecond());
+        setParteAtual(getParteAtual() - 1);
+        resetParte();
     }
   });
 });
-
 window.carregarRelPorData = carregarRelPorData;
