@@ -98,7 +98,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (event.target && event.target.id === "gerarRelatorio") {
       event.preventDefault();
-      gerarPdfRelatorio(tipoReuniao);
+      if(!getReuniaoIniciada()){
+        gerarPdfRelatorio(tipoReuniao);
+      } else {
+        alert("Reunião não foi encerrada");
+      }
+      
     }
 
     if (event.target && event.target.id === "pauseMeeting") {
