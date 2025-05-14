@@ -94,7 +94,10 @@ document.addEventListener("DOMContentLoaded", () => {
         setParteAtual(0);
         resetParte();
       }
+    }
 
+    if (event.target && event.target.id === "gerarRelatorio") {
+      event.preventDefault();
       gerarPdfRelatorio(tipoReuniao);
     }
 
