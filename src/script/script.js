@@ -141,22 +141,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const nextPButton = event.target.closest("#nextParte")
     if(nextPButton) {
-      if(!getParteIniciada()){
-        preencherTempo(temposPartes, getParteAtual(), 0, 0, 0);
-        setParteAtual(getParteAtual() + 1);
-        resetParte();
-      } 
-      else {
-        encerrarParte();
+      if(getReuniaoIniciada()) {
+        if(!getParteIniciada()) {
+          preencherTempo(temposPartes, getParteAtual(), 0, 0, 0);
+          setParteAtual(getParteAtual() + 1);
+          resetParte();
+        } 
+        else {
+          encerrarParte();
+        }
+      } else {
+        alert("Inicie a reunião para navegar");
       }
     }
 
     const backPButton = event.target.closest("#lastParte")
     if(backPButton) {
+      if(getReuniaoIniciada()) {
         setParteIniciada(false);
         preencherTempo(temposPartes, getParteAtual(), getPHour(), getPMinute(), getPSecond());
         setParteAtual(getParteAtual() - 1);
         resetParte();
+      } else {
+        alert("Inicie a reunião para navegar");
+      }
     }
   });
 });
