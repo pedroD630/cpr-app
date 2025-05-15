@@ -65,8 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.addEventListener("click", (event) => {
-    if (event.target && event.target.id === "startMeeting") {
 
+    const startButton = event.target.closest("#startMeeting");
+    if (startButton) {
       if (!getReuniaoIniciada()) {
         let horaInicio = document.getElementById("horaInicio");
         horaInicio.value = receberHorario();
@@ -78,7 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    if (event.target && event.target.id === "encerrarReuniao") {
+    const endButton = event.target.closest("#encerrarReuniao");
+    if (endButton) {
       event.preventDefault();
       let horaFim = document.getElementById("horaFim");
       horaFim.value = receberHorario();
@@ -96,7 +98,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    if (event.target && event.target.id === "gerarRelatorio") {
+    const relatButton = event.target.closest("#gerarRelatorio")
+    if (relatButton) {
       event.preventDefault();
       if(!getReuniaoIniciada()){
         gerarPdfRelatorio(tipoReuniao);
@@ -106,13 +109,15 @@ document.addEventListener("DOMContentLoaded", () => {
       
     }
 
-    if (event.target && event.target.id === "pauseMeeting") {
+    const pauseButton = event.target.closest("#pauseMeeting")
+    if (pauseButton) {
       setReuniaoPausada(true);
       pauseCron();
       pauseParte();
     }
 
-    if (event.target && event.target.id === "startParte") {
+    const startPButton = event.target.closest("#startParte")
+    if (startPButton) {
 
       if (getReuniaoIniciada() && !getReuniaoPausada()) {
         if (!getParteIniciada()) {
@@ -124,7 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    if (event.target && event.target.id === "endParte") {
+    const endPButton = event.target.closest("#endParte")
+    if (endPButton) {
       if(!getParteIniciada()){
         alert("Parte não iniciada!")
       }
@@ -133,7 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    if(event.target && event.target.id === "nextParte") {
+    const nextPButton = event.target.closest("#nextParte")
+    if(nextPButton) {
       if(!getParteIniciada()){
         preencherTempo(temposPartes, getParteAtual(), 0, 0, 0);
         setParteAtual(getParteAtual() + 1);
@@ -144,7 +151,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    if(event.target && event.target.id === "lastParte") {
+    const backPButton = event.target.closest("#lastParte")
+    if(backPButton) {
         setParteIniciada(false);
         preencherTempo(temposPartes, getParteAtual(), getPHour(), getPMinute(), getPSecond());
         setParteAtual(getParteAtual() - 1);
