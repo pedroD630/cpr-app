@@ -144,13 +144,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextPButton = event.target.closest("#nextParte")
     if(nextPButton) {
       if(getReuniaoIniciada()) {
-        if(!getParteIniciada()) {
-          preencherTempo(temposPartes, getParteAtual(), 0, 0, 0);
-          setParteAtual(getParteAtual() + 1);
-          resetParte();
-        } 
-        else {
-          encerrarParte();
+        if((getParteAtual() == 18 && tipoReuniao == "mds") || (getParteAtual() == 4 && tipoReuniao == "fds")){
+          alert("Última parte alcançada. Não é possível avançar");
+        } else {
+            if(!getParteIniciada()) {
+            preencherTempo(temposPartes, getParteAtual(), 0, 0, 0);
+            setParteAtual(getParteAtual() + 1);
+            resetParte();
+          } 
+          else {
+            encerrarParte();
+          }
         }
       } else {
         alert("Inicie a reunião para navegar");
@@ -160,10 +164,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const backPButton = event.target.closest("#lastParte")
     if(backPButton) {
       if(getReuniaoIniciada()) {
-        setParteIniciada(false);
-        preencherTempo(temposPartes, getParteAtual(), getPHour(), getPMinute(), getPSecond());
-        setParteAtual(getParteAtual() - 1);
-        resetParte();
+        if(getParteAtual() == 0) {
+          alert("Primeira parte localizada, não é possível voltar.");
+        } else {
+          setParteIniciada(false);
+          preencherTempo(temposPartes, getParteAtual(), getPHour(), getPMinute(), getPSecond());
+          setParteAtual(getParteAtual() - 1);
+          resetParte();
+        }
       } else {
         alert("Inicie a reunião para navegar");
       }
