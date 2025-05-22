@@ -2,7 +2,8 @@ import {
     updateDisplay
 } from "./ui.js";
 import {
-    getParteIniciada
+    getParteIniciada,
+    startParte
 } from "./cronometro-partes.js";
 
 let cron;

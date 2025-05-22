@@ -73,9 +73,11 @@ document.addEventListener("DOMContentLoaded", () => {
         horaInicio.value = receberHorario();
         setReuniaoIniciada(true);
         startCron();
-      } else if (getReuniaoPausada) {
+      } else if (getReuniaoPausada()) {
         setReuniaoPausada(false);
         startCron();
+      } else if (getReuniaoIniciada() && !getReuniaoPausada()) {
+        alert("Reunião já iniciada");
       }
     }
 
