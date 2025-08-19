@@ -1,4 +1,9 @@
 // Carrega o menu HTML dinamicamente
+import { 
+    storeTempo, 
+    storeHora 
+} from "./salvar-local.js";
+
 import {
     returnData,
     baseUrl
@@ -18,18 +23,15 @@ export function carregarMenu(baseUrl) {
         });
 }
 
-export function carregarCronometro(baseUrl) {
-    fetch(`${baseUrl}src/reutil/cronometro.html`)
-        .then(response => {
-            if (!response.ok) throw new Error(`Erro ao carregar cronometro: ${response.statusText}`);
-            return response.text();
-        })
-        .then(menuHTML => {
-            document.getElementById('cronometro').innerHTML = menuHTML;
-        })
-        .catch(error => {
-            console.error('Erro ao carregar o cronometro:', error);
-        });
+export async function carregarCronometro(baseUrl) {
+    try {
+        const response = await fetch(`${baseUrl}src/reutil/cronometro.html`);
+        if (!response.ok) throw new Error(`Erro ao carregar cronometro: ${response.statusText}`);
+        const html = await response.text();
+        document.getElementById('cronometro').innerHTML = html;
+    } catch (error) {
+        console.error('Erro ao carregar o cronometro:', error);
+    }
 }
 
 export function carregarRelPorData() {
@@ -64,6 +66,10 @@ export function preencherTempo(temposPartes, index, pHour, pMinute, pSecond) {
     } else {
         parteTempo.value = `${formattedPMinute}:${formattedPSecond}`;
     }
+
+    storeTempo(index, parteTempo.value);
+    // problema com fetch ao carregar cronometro 
+    // storeHora("tempoTotal", document.getElementById("displayTime").textContent);
 }
 
 export function preencherTempoTotal() {

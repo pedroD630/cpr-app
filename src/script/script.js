@@ -7,12 +7,14 @@ import {
 } from "./ui.js";
 import {
   receberHorario,
-  baseUrl
+  baseUrl,
+  parseTempo
 } from "./utils.js";
 import {
   startCron,
   pauseCron,
   resetCron,
+  carregarEstadoCronometro,
   getReuniaoPausada,
   setReuniaoPausada,
   getReuniaoIniciada,
@@ -35,8 +37,12 @@ import {
 import {
   gerarPdfRelatorio
 } from "./gerar-pdf.js";
+import { 
+  storeHora, 
+  getTempo, 
+  limparStorage
+} from "./salvar-local.js";
 
-carregarCronometro(baseUrl);
 carregarMenu(baseUrl);
 
 function encerrarParte() {
@@ -46,7 +52,24 @@ function encerrarParte() {
   resetParte();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  await carregarCronometro(baseUrl);
+  document.querySelectorAll(".tempo-parte").forEach(el => temposPartes.push(el));
+
+  if(getTempo("reuniaoIniciada")){
+    carregarEstadoCronometro();
+    let proxParte = getTempo("proxParte");
+
+    let horaInicio = document.getElementById("horaInicio");
+    horaInicio.value = getTempo("horaInicio");
+
+    for(let i = getParteAtual(); i < proxParte; i++){
+      let tempoParte = getTempo(i);
+      let tempoParteObj = parseTempo(tempoParte);
+      preencherTempo(temposPartes, i, tempoParteObj.horas, tempoParteObj.minutos, tempoParteObj.segundos);
+      setParteAtual(getParteAtual() + 1);
+    }
+  }
 
   window.addEventListener('beforeunload', (event) => {
     if (getReuniaoIniciada()) {
@@ -54,8 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
       event.returnValue = '';
     }
   });
-
-  document.querySelectorAll(".tempo-parte").forEach(el => temposPartes.push(el));
 
   document.addEventListener("click", (event) => {
     if (event.target && event.target.id === "hideTimer") {
@@ -71,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!getReuniaoIniciada()) {
         let horaInicio = document.getElementById("horaInicio");
         horaInicio.value = receberHorario();
+        storeHora("horaInicio", horaInicio.value);
         setReuniaoIniciada(true);
         startCron();
       } else if (getReuniaoPausada()) {
@@ -86,8 +108,10 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
       let horaFim = document.getElementById("horaFim");
       horaFim.value = receberHorario();
+      storeHora("horaFim", horaFim.value);
 
       preencherTempoTotal();
+      storeHora("tempoTotal", document.getElementById("displayTime").textContent);
       resetCron();
 
       setReuniaoIniciada(false)
@@ -108,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         alert("Reunião não foi encerrada");
       }
-      
+      limparStorage()
     }
 
     const pauseButton = event.target.closest("#pauseMeeting")
