@@ -35,6 +35,7 @@ import {
 import {
   gerarPdfRelatorio
 } from "./gerar-pdf.js";
+import { storeHora } from "./salvar-local.js";
 
 carregarCronometro(baseUrl);
 carregarMenu(baseUrl);
@@ -71,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!getReuniaoIniciada()) {
         let horaInicio = document.getElementById("horaInicio");
         horaInicio.value = receberHorario();
+        storeHora("horaInicio", horaInicio.value);
         setReuniaoIniciada(true);
         startCron();
       } else if (getReuniaoPausada()) {
@@ -86,8 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
       let horaFim = document.getElementById("horaFim");
       horaFim.value = receberHorario();
+      storeHora("horaFim", horaFim.value);
 
       preencherTempoTotal();
+      storeHora("tempoTotal", document.getElementById("displayTime").textContent);
       resetCron();
 
       setReuniaoIniciada(false)

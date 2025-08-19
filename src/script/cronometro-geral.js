@@ -5,6 +5,7 @@ import {
     getParteIniciada,
     startParte
 } from "./cronometro-partes.js";
+import { storeHora } from "./salvar-local.js";
 
 let cron;
 let startTime;
@@ -14,6 +15,7 @@ let reuniaoPausada = false;
 
 export function setReuniaoIniciada(valor) {
     reuniaoIniciada = valor;
+    storeHora("reuniaoIniciada", reuniaoIniciada);
 }
 
 export function getReuniaoIniciada() {

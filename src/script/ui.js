@@ -1,4 +1,9 @@
 // Carrega o menu HTML dinamicamente
+import { 
+    storeTempo, 
+    storeHora 
+} from "./salvar-local.js";
+
 import {
     returnData,
     baseUrl
@@ -64,6 +69,9 @@ export function preencherTempo(temposPartes, index, pHour, pMinute, pSecond) {
     } else {
         parteTempo.value = `${formattedPMinute}:${formattedPSecond}`;
     }
+
+    storeTempo(index, parteTempo.value);
+    storeHora("tempoTotal", document.getElementById("displayTime").textContent);
 }
 
 export function preencherTempoTotal() {
