@@ -21,5 +21,7 @@ export function getTempo(campo){
 }
 
 export function limparStorage(){
+    console.log("Limpando storage...");
     localStorage.clear();
+    console.log(localStorage.length);
 }
