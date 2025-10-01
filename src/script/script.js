@@ -37,6 +37,9 @@ import {
 import {
   gerarPdfRelatorio
 } from "./gerar-pdf.js";
+import {
+  copiarRelatorio
+} from "./gerar-texto.js";
 import { 
   storeHora, 
   getTempo, 
@@ -127,14 +130,23 @@ document.addEventListener("DOMContentLoaded", async () => {
     const relatButton = event.target.closest("#gerarRelatorio")
     if (relatButton) {
       event.preventDefault();
-      if(!getReuniaoIniciada()){
-        gerarPdfRelatorio(tipoReuniao);
-      } else {
+      if(getReuniaoIniciada()){
         alert("Reunião não foi encerrada");
       }
       limparStorage()
     }
 
+    const baixarPdfButton = event.target.closest("#baixarPdf")
+    if (baixarPdfButton) {
+      event.preventDefault();
+      gerarPdfRelatorio(tipoReuniao);
+    } 
+
+    const copyRelatorioButton = event.target.closest("#copiarRelatorio")
+    if (copyRelatorioButton) {
+      event.preventDefault();
+      copiarRelatorio(tipoReuniao);
+    }
     const pauseButton = event.target.closest("#pauseMeeting")
     if (pauseButton) {
       setReuniaoPausada(true);
