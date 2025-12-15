@@ -229,11 +229,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     if(tipoReuniao === 'fds') {
-      payload = montarFds(payload);
+      payload = await montarFds(payload);
     }
 
     if(tipoReuniao === 'mds') {
-      payload = montarMds(payload);
+      payload = await montarMds(payload);
     }
 
     await adicionarReuniao(payload);
