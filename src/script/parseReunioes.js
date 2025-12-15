@@ -54,6 +54,9 @@ export async function montarMDS(payload) {
         const tempo = document.getElementById(tempoId)?.value || '';
 
         if (participante || tempo) {
+
+            if(tempo === '00:00') return;
+            
             payload.partes.push({
                 nome,
                 participante,
