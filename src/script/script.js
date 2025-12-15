@@ -212,6 +212,28 @@ document.addEventListener("DOMContentLoaded", async () => {
         alert("Inicie a reunião para navegar");
       }
     }
+
   });
+
+  const form = document.querySelector('form');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    let payload = {
+      tipo: tipoReuniao,
+      partes: []
+    };
+
+    if(tipoReuniao === 'fds') {
+      payload = montarFds(payload);
+    }
+
+    if(tipoReuniao === 'mds') {
+      payload = montarMds(payload);
+    }
+
+    await adicionarReuniao(payload);
+  })
 });
 window.carregarRelPorData = carregarRelPorData;
