@@ -49,6 +49,9 @@ import {
   montarFDS,
   montarMDS
 } from "./parseReunioes.js";
+import {
+  adicionarReuniao
+} from "./reunioes-service.js";
 
 carregarMenu(baseUrl);
 
@@ -112,7 +115,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const endButton = event.target.closest("#encerrarReuniao");
     if (endButton) {
-      event.preventDefault();
       let horaFim = document.getElementById("horaFim");
       horaFim.value = receberHorario();
       storeHora("horaFim", horaFim.value);
@@ -240,7 +242,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       payload = await montarMDS(payload);
     }
 
-    await adicionarReuniao(payload);
-  })
+    try {
+      await adicionarReuniao(payload);
+      alert('Reunião salva com sucesso');
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      alert('Erro ao salvar reunião. Veja console do navegador para detalhes.');
+    }
+  });
 });
 window.carregarRelPorData = carregarRelPorData;
