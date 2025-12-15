@@ -1,4 +1,4 @@
-export async function montarFds(payload) {
+export async function montarFDS(payload) {
     const partes = [
         ['Comentários Iniciais', 'comentariosIniciais', 'tempoComentariosIniciais'],
         ['Discurso Público', 'discursoPublico', 'tempoDiscursoPublico'],
