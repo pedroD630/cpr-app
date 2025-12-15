@@ -222,6 +222,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     let payload = {
       tipo: tipoReuniao,
+      horaInicio: document.getElementById('horaInicio').value,
+      horaFim: document.getElementById('horaFim').value,
+      tempoTotal: document.getElementById('tempoTotal').value,
       partes: []
     };
 
