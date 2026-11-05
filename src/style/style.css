@@ -12,3 +12,79 @@
 .hidden {
     display: none;
 }
+
+:root {
+    --timer-largura: 6.75rem;
+    --menu-inf-altura: 4.25rem;
+}
+
+.timer-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: var(--menu-inf-altura);
+    z-index: 1030;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: var(--timer-largura);
+    padding: 0.75rem 0.5rem;
+    overflow-y: auto;
+    background-color: rgb(26, 29, 32);
+    border-left: 1px solid #495057;
+}
+
+.timer-display {
+    width: 100%;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+}
+
+.timer-acoes {
+    display: grid;
+    gap: 0.625rem;
+    justify-items: center;
+    margin-top: 0.5rem;
+}
+
+.timer-acao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --timer-largura: 10rem;
+    }
+
+    .timer-panel {
+        padding: 1rem 0.75rem;
+    }
+
+    .timer-display {
+        padding: 0.75rem 0;
+        font-size: 1.375rem;
+    }
+}
+
+/* Telas baixas (celular deitado): seis botões em coluna não cabem */
+@media (max-height: 520px) {
+    .timer-acoes {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 0;
+    }
+
+    .timer-acao {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
