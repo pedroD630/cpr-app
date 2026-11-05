@@ -82,9 +82,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   document.addEventListener("click", (event) => {
-    if (event.target && event.target.id === "hideTimer") {
+    if (event.target.closest("#hideTimer")) {
       let timerNavbar = document.getElementById("cronometro");
-      timerNavbar.classList.toggle("hidden");
+      timerNavbar?.classList.toggle("hidden");
     }
   });
 
