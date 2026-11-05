@@ -9,10 +9,6 @@
     font-size: 25px;
 }
 
-.hidden {
-    display: none;
-}
-
 :root {
     --timer-largura: 6.75rem;
     --menu-inf-altura: 4.25rem;
@@ -33,6 +29,12 @@
     overflow-y: auto;
     background-color: rgb(26, 29, 32);
     border-left: 1px solid #495057;
+    transition: transform 0.25s ease, visibility 0.25s;
+}
+
+#cronometro.timer-recolhido .timer-panel {
+    visibility: hidden;
+    transform: translateX(100%);
 }
 
 .timer-display {
