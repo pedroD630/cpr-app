@@ -1,5 +1,8 @@
 export const baseUrl = "/";
 
+// Endereço público da API, não é segredo. Troque ao publicar.
+export const apiUrl = "http://localhost:8000/api";
+
 export function receberHorario() {
     let date = new Date();
     let horas = date.getHours();
