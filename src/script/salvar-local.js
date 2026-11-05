@@ -22,6 +22,8 @@ export function getTempo(campo){
 
 export function limparStorage(){
     console.log("Limpando storage...");
+    const tema = localStorage.getItem("tema"); // preferência do usuário, não dado da reunião
     localStorage.clear();
+    if (tema) localStorage.setItem("tema", tema);
     console.log(localStorage.length);
 }

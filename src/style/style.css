@@ -9,6 +9,11 @@
     font-size: 25px;
 }
 
+[data-bs-theme="light"] .tema-icone-escuro,
+[data-bs-theme="dark"] .tema-icone-claro {
+    display: none;
+}
+
 :root {
     --timer-largura: 6.75rem;
     --menu-inf-altura: 4.25rem;
