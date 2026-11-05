@@ -20,10 +20,15 @@ export function getTempo(campo){
     return localStorage.getItem(`${campo}`);
 }
 
+// Preferências e sessão não são dados da reunião em andamento.
+const CHAVES_PRESERVADAS = ["tema", "sessao", "reunioesPendentes"];
+
 export function limparStorage(){
     console.log("Limpando storage...");
-    const tema = localStorage.getItem("tema"); // preferência do usuário, não dado da reunião
+    const preservados = CHAVES_PRESERVADAS.map(chave => [chave, localStorage.getItem(chave)]);
     localStorage.clear();
-    if (tema) localStorage.setItem("tema", tema);
+    preservados.forEach(([chave, valor]) => {
+        if (valor !== null) localStorage.setItem(chave, valor);
+    });
     console.log(localStorage.length);
 }

@@ -40,10 +40,12 @@ import {
 import {
   copiarRelatorio
 } from "./gerar-texto.js";
+import {
+  concluirReuniao
+} from "./reunioes.js";
 import { 
   storeHora, 
-  getTempo, 
-  limparStorage
+  getTempo
 } from "./salvar-local.js";
 
 carregarMenu(baseUrl);
@@ -56,6 +58,9 @@ function encerrarParte() {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+  // O restante só se aplica às páginas de relatório
+  if (!document.getElementById("cronometro")) return;
+
   await carregarCronometro(baseUrl);
   document.querySelectorAll(".tempo-parte").forEach(el => temposPartes.push(el));
 
@@ -65,6 +70,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     let horaInicio = document.getElementById("horaInicio");
     horaInicio.value = getTempo("horaInicio");
+    document.getElementById("horaFim").value = getTempo("horaFim") || "";
+    document.getElementById("tempoTotal").value = getTempo("tempoTotal") || "";
 
     for(let i = getParteAtual(); i < proxParte; i++){
       let tempoParte = getTempo(i);
@@ -132,8 +139,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       event.preventDefault();
       if(getReuniaoIniciada()){
         alert("Reunião não foi encerrada");
+      } else {
+        concluirReuniao(tipoReuniao);
       }
-      limparStorage()
     }
 
     const baixarPdfButton = event.target.closest("#baixarPdf")
