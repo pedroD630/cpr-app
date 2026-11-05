@@ -14,6 +14,11 @@
     --menu-inf-altura: 4.25rem;
 }
 
+/* Evita que o painel aberto cubra o formulário */
+body:has(#cronometro:not(.timer-recolhido) .timer-panel) {
+    padding-right: var(--timer-largura);
+}
+
 .timer-panel {
     position: fixed;
     top: 0;
