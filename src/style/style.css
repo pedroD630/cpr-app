@@ -59,6 +59,10 @@ body:has(#cronometro:not(.timer-recolhido) .timer-panel) {
     transform: translateX(100%);
 }
 
+.acesso {
+    max-width: 26rem;
+}
+
 .termos {
     max-width: 48rem;
 }
