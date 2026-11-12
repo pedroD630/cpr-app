@@ -1,4 +1,4 @@
-import { api, encerrarSessao } from "./api.js";
+import { api, encerrarSessao, salvarSessao } from "./api.js";
 
 function mostrar(idMensagem, texto, tipo) {
     const mensagem = document.getElementById(idMensagem);
@@ -25,13 +25,15 @@ const formSenha = document.getElementById("formSenha");
 formSenha.addEventListener("submit", (event) => {
     event.preventDefault();
     enviarFormulario(formSenha, "mensagemSenha", async () => {
-        await api("/auth/senha", {
+        const { sessao } = await api("/auth/senha", {
             metodo: "PUT",
             corpo: {
                 senha_atual: document.getElementById("senhaAtual").value,
                 nova_senha: document.getElementById("novaSenha").value
             }
         });
+        // A troca encerra a sessão antiga: sem isto o app sairia da conta.
+        salvarSessao(sessao);
         return "Senha alterada.";
     });
 });
