@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+    <script src="/src/script/guarda.js"></script>
+    <script src="/src/script/tema.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/src/style/style.css" rel="stylesheet">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <main class="container mt-4 mb-5 configuracoes">
+        <h1 class="mb-1">Configurações</h1>
+        <p id="nomeCongregacao" class="text-body-secondary mb-4"></p>
+
+        <section class="mb-5" aria-labelledby="tituloSenha">
+            <h2 id="tituloSenha" class="h4">Alterar senha</h2>
+            <div id="mensagemSenha" class="alert d-none" role="status"></div>
+            <form id="formSenha">
+                <div class="mb-3">
+                    <label for="senhaAtual" class="form-label">Senha atual</label>
+                    <input type="password" class="form-control" id="senhaAtual" autocomplete="current-password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="novaSenha" class="form-label">Nova senha</label>
+                    <input type="password" class="form-control" id="novaSenha" autocomplete="new-password" minlength="6" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Alterar senha</button>
+            </form>
+        </section>
+
+        <section id="secaoAdmin" class="mb-5 d-none" aria-labelledby="tituloCadastro">
+            <h2 id="tituloCadastro" class="h4">Cadastrar congregação</h2>
+            <p class="small text-body-secondary">Entregue o usuário e a senha à congregação. Ela pode trocar a senha aqui depois do primeiro acesso.</p>
+            <div id="mensagemCadastro" class="alert d-none" role="status"></div>
+            <form id="formCadastro">
+                <div class="mb-3">
+                    <label for="nomeNovaCongregacao" class="form-label">Nome da congregação</label>
+                    <input type="text" class="form-control" id="nomeNovaCongregacao" required>
+                </div>
+                <div class="mb-3">
+                    <label for="loginNovaCongregacao" class="form-label">Usuário ou e-mail de acesso</label>
+                    <input type="text" class="form-control" id="loginNovaCongregacao" autocomplete="off" autocapitalize="none" spellcheck="false" required>
+                    <div class="form-text">Usuário: de 2 a 30 letras minúsculas, números, ponto, hífen ou sublinhado.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="senhaNovaCongregacao" class="form-label">Senha inicial</label>
+                    <input type="text" class="form-control" id="senhaNovaCongregacao" autocomplete="off" minlength="6" required>
+                </div>
+                <div class="form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="aceiteNovaCongregacao" required>
+                    <label for="aceiteNovaCongregacao" class="form-check-label">A congregação leu e aceitou os <a href="/src/termos.html" target="_blank" rel="noopener">termos de uso</a></label>
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </section>
+    </main>
+
+    <div id="menu"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/src/script/script.js"></script>
+    <script type="module" src="/src/script/configuracoes.js"></script>
+</body>
+</html>
