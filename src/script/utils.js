@@ -1,7 +1,9 @@
 export const baseUrl = "/";
 
-// Endereço público da API, não é segredo. Troque ao publicar.
-export const apiUrl = "http://localhost:8000/api";
+// Endereço público da API, não é segredo.
+export const apiUrl = location.hostname === "localhost"
+    ? "http://localhost:8000/api"
+    : "https://cpr-cronometro.onrender.com/api";
 
 export function receberHorario() {
     let date = new Date();
